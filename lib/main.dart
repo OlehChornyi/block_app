@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:block_app/data/backend_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,8 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Navigate to one of the following screens',
             ),
-            ElevatedButton(onPressed: () {}, child: Text('Counter Screen')),
-            ElevatedButton(onPressed: () {}, child: Text('API Screen')),
+            ElevatedButton(onPressed: () {
+              BackendService().fetchComments();
+            }, child: const Text('Counter Screen')),
+            ElevatedButton(onPressed: () {}, child: const Text('API Screen')),
            
           ],
         ),
