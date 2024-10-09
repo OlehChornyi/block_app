@@ -1,6 +1,6 @@
 import 'package:block_app/screens/comments_screen.dart';
+import 'package:block_app/screens/counter_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:block_app/data/backend_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,14 +49,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  BackendService().fetchComments();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => const CounterScreen(),
+                    ),
+                  );
                 },
                 child: const Text('Counter Screen')),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (ctx) => CommentScreen(),
+                      builder: (ctx) => const CommentScreen(),
                     ),
                   );
                 },

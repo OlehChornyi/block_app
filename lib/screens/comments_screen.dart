@@ -4,13 +4,15 @@ import 'package:block_app/bloc/comments_block.dart';
 import 'package:block_app/data/backend_service.dart';
 
 class CommentScreen extends StatelessWidget {
+  const CommentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) =>
           CommentBloc(backendService: BackendService())..add(FetchComments()),
       child: Scaffold(
-        appBar: AppBar(title: Text('Comments')),
+        appBar: AppBar(title: const Text('Comments')),
         body: BlocBuilder<CommentBloc, CommentState>(
           builder: (context, state) {
             if (state is CommentLoading) {
